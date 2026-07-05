@@ -237,4 +237,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // In-App Toast Reminders for Delayed/Overdue Tasks
+    function checkInAppReminders() {
+        const todayStr = new Date().toISOString().split('T')[0];
+        const overdueTasks = tasks.filter(task => !task.completed && task.completionDate < todayStr);
+        
+        if (overdueTasks.length > 0) {
+            showToast(`⚠️ You have ${overdueTasks.length} delayed task(s) that need your attention!`);
+        }
+    }
+
+    function showToast(message) {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+        
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerHTML = `<span>${message}</span>`;
+        
+        // Click to dismiss
+        toast.addEventListener('click', () => {
+            toast.classList.add('fade-out');
+            setTimeout(() => toast.remove(), 300);
+        });
+        
+        container.appendChild(toast);
+        
+        // Auto dismiss after 7 seconds
+        setTimeout(() => {
+            if (toast.parentElement) {
+                toast.classList.add('fade-out');
+                setTimeout(() => toast.remove(), 300);
+            }
+        }, 7000);
+    }
+    
+    // Check for in-app reminders shortly after load
+    setTimeout(checkInAppReminders, 1500);
 });
