@@ -41,55 +41,10 @@ body {
     height: 100vh;
     z-index: -1;
     overflow: hidden;
+    background: linear-gradient(to bottom, #000000 0%, #1a0800 30%, #521c04 60%, #a83d09 85%, #e8631c 100%);
 }
 
-/* IT Grid Background */
-.it-grid {
-    position: absolute;
-    width: 200vw;
-    height: 200vh;
-    top: -50vh;
-    left: -50vw;
-    background-image: 
-        linear-gradient(rgba(255, 87, 34, 0.15) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 87, 34, 0.15) 1px, transparent 1px);
-    background-size: 60px 60px;
-    transform: perspective(600px) rotateX(70deg) translateY(0);
-    animation: gridMove 20s linear infinite;
-    z-index: -2;
-}
 
-@keyframes gridMove {
-    0% { transform: perspective(600px) rotateX(70deg) translateY(0); }
-    100% { transform: perspective(600px) rotateX(70deg) translateY(60px); }
-}
-
-/* Binary Data Streams */
-.binary-stream {
-    position: absolute;
-    color: rgba(255, 87, 34, 0.25);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.5rem;
-    font-weight: bold;
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    white-space: nowrap;
-    animation: dataFall 10s linear infinite;
-    z-index: -1;
-}
-
-@keyframes dataFall {
-    0% { transform: translateY(-100%); opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { transform: translateY(100vh); opacity: 0; }
-}
-
-.stream-1 { left: 10%; animation-duration: 12s; animation-delay: 0s; }
-.stream-2 { left: 30%; animation-duration: 18s; animation-delay: 5s; }
-.stream-3 { left: 50%; animation-duration: 14s; animation-delay: 2s; }
-.stream-4 { left: 70%; animation-duration: 16s; animation-delay: 8s; }
-.stream-5 { left: 90%; animation-duration: 20s; animation-delay: 3s; }
 
 
 
