@@ -110,7 +110,7 @@ header p {
 
 .dashboard {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: start;
 }
@@ -320,6 +320,7 @@ input:checked + .slider:before {
 .task-title {
     font-weight: 600;
     font-size: 1.1rem;
+    word-break: break-word;
 }
 
 .badges {
