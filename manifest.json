@@ -1,0 +1,16 @@
+{
+  "name": "Task Manager Portal",
+  "short_name": "Tasks",
+  "description": "A beautiful Cyberpunk Task Manager",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0213",
+  "theme_color": "#0b0213",
+  "icons": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/512px-Check_green_icon.svg.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
