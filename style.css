@@ -75,6 +75,51 @@ body {
     100% { transform: translate(0, 0) scale(1) rotate(0deg); }
 }
 
+/* Bubbles */
+.bubble {
+    position: absolute;
+    bottom: -50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: rise infinite ease-in;
+    z-index: -1;
+}
+
+@keyframes rise {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+}
+
+.bubble-1 { width: 20px; height: 20px; left: 10%; animation-duration: 8s; animation-delay: 1s; }
+.bubble-2 { width: 30px; height: 30px; left: 40%; animation-duration: 12s; animation-delay: 3s; }
+.bubble-3 { width: 15px; height: 15px; left: 70%; animation-duration: 6s; animation-delay: 0s; }
+.bubble-4 { width: 25px; height: 25px; left: 90%; animation-duration: 10s; animation-delay: 5s; }
+.bubble-5 { width: 35px; height: 35px; left: 25%; animation-duration: 15s; animation-delay: 2s; }
+
+/* White Fish */
+.white-fish {
+    position: absolute;
+    width: 60px;
+    height: auto;
+    top: 20%;
+    left: -100px;
+    opacity: 0.8;
+    animation: swim 25s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.6));
+    z-index: -1;
+}
+
+@keyframes swim {
+    0% { transform: translateX(0) translateY(0) scaleX(1); }
+    45% { transform: translateX(110vw) translateY(50px) scaleX(1); }
+    50% { transform: translateX(110vw) translateY(50px) scaleX(-1); }
+    95% { transform: translateX(-100px) translateY(-30px) scaleX(-1); }
+    100% { transform: translateX(-100px) translateY(0) scaleX(1); }
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
