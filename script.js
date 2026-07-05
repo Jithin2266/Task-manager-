@@ -16,6 +16,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render tasks on load
     renderTasks();
 
+    // Quick Select: Today logic
+    const todayCheckbox = document.getElementById('today-task');
+    const startDateInput = document.getElementById('start-date');
+    const completionDateInput = document.getElementById('completion-date');
+    
+    if (todayCheckbox) {
+        todayCheckbox.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                const today = new Date().toISOString().split('T')[0];
+                startDateInput.value = today;
+                completionDateInput.value = today;
+            } else {
+                startDateInput.value = '';
+                completionDateInput.value = '';
+            }
+        });
+    }
+
     // Handle form submission
     taskForm.addEventListener('submit', (e) => {
         e.preventDefault();
