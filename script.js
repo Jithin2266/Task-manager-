@@ -204,12 +204,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const completed = tasks.filter(t => t.completed).length;
         const pending = tasks.filter(t => !t.completed).length;
         const overdue = tasks.filter(t => !t.completed && t.completionDate < todayStr).length;
+        const dueToday = tasks.filter(t => !t.completed && t.completionDate === todayStr).length;
 
         const statTotal = document.getElementById('stat-total');
         if (statTotal) {
             statTotal.innerText = total;
             document.getElementById('stat-completed').innerText = completed;
             document.getElementById('stat-pending').innerText = pending;
+            document.getElementById('stat-due-today').innerText = dueToday;
             document.getElementById('stat-overdue').innerText = overdue;
         }
     }
