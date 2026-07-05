@@ -1,13 +1,13 @@
 :root {
-    --bg-color: #060b14;
+    --bg-color: #000000;
     --text-primary: #f8fafc;
     --text-secondary: #a78bfa;
     
-    --glass-bg: rgba(30, 20, 50, 0.4);
+    --glass-bg: rgba(20, 20, 20, 0.8);
     --glass-border: rgba(255, 255, 255, 0.1);
     
-    --primary-color: #06b6d4;
-    --primary-hover: #0891b2;
+    --primary-color: #ff5722;
+    --primary-hover: #e64a19;
     
     --priority-urgent: #ef4444;
     --priority-high: #f97316;
@@ -51,8 +51,8 @@ body {
     top: -50vh;
     left: -50vw;
     background-image: 
-        linear-gradient(rgba(6, 182, 212, 0.15) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(6, 182, 212, 0.15) 1px, transparent 1px);
+        linear-gradient(rgba(255, 87, 34, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 87, 34, 0.15) 1px, transparent 1px);
     background-size: 60px 60px;
     transform: perspective(600px) rotateX(70deg) translateY(0);
     animation: gridMove 20s linear infinite;
@@ -67,7 +67,7 @@ body {
 /* Binary Data Streams */
 .binary-stream {
     position: absolute;
-    color: rgba(6, 182, 212, 0.25);
+    color: rgba(255, 87, 34, 0.25);
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.5rem;
     font-weight: bold;
@@ -114,7 +114,7 @@ header {
 header h1 {
     font-size: 2.5rem;
     font-weight: 700;
-    background: linear-gradient(to right, #f0abfc, #2dd4bf, #8b5cf6, #f0abfc);
+    background: linear-gradient(to right, #ff9800, #ff5722, #e64a19, #ff9800);
     background-size: 300% 300%;
     animation: gradientShift 6s ease infinite;
     -webkit-background-clip: text;
@@ -260,7 +260,7 @@ input:checked + .slider:before {
 
 .btn-primary {
     background: var(--primary-color);
-    color: #0b0213;
+    color: #000000;
     border: none;
     padding: 0.875rem 1.5rem;
     border-radius: 8px;
@@ -269,13 +269,13 @@ input:checked + .slider:before {
     cursor: pointer;
     width: 100%;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 14px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 4px 14px rgba(255, 87, 34, 0.4);
 }
 
 .btn-primary:hover {
     background: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.6);
+    box-shadow: 0 6px 20px rgba(255, 87, 34, 0.6);
 }
 
 .btn-primary:active {

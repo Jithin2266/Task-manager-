@@ -118,24 +118,27 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderTasks() {
         taskList.innerHTML = '';
 
-        if (tasks.length === 0) {
+        const todayStr = new Date().toISOString().split('T')[0];
+
+        // Only show tasks meant for today or earlier
+        const currentTasks = tasks.filter(task => task.startDate <= todayStr);
+
+        if (currentTasks.length === 0) {
             taskList.innerHTML = `
                 <div class="empty-state">
-                    <p>No tasks yet. Create one to get started!</p>
+                    <p>No tasks for today. Create one to get started!</p>
                 </div>
             `;
             return;
         }
 
         // Sort by completed status first, then by priority (descending)
-        const sortedTasks = [...tasks].sort((a, b) => {
+        const sortedTasks = [...currentTasks].sort((a, b) => {
             if (a.completed !== b.completed) {
                 return a.completed ? 1 : -1;
             }
             return priorityMap[b.priority] - priorityMap[a.priority];
         });
-
-        const todayStr = new Date().toISOString().split('T')[0];
 
         sortedTasks.forEach(task => {
             const taskElement = document.createElement('div');
@@ -171,8 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span>📅 Start: ${formatDate(task.startDate)}</span>
                     <span>🏁 Due: ${formatDate(task.completionDate)}</span>
                 </div>
-                <div class="task-actions">
-                    ${!task.completed ? `<button class="btn-icon tomorrow-btn" title="Move to Tomorrow">⏭️</button>` : ''}
+                <div class="task-actions" style="align-items: center;">
+                    ${!task.completed ? `<button class="tomorrow-btn" style="background: rgba(255, 87, 34, 0.15); border: 1px solid var(--primary-color); color: var(--text-primary); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; transition: all 0.2s; margin-right: auto; font-weight: 500;">Move to Tomorrow</button>` : ''}
                     <button class="btn-icon complete-btn check" title="${task.completed ? 'Mark as incomplete' : 'Mark as complete'}">
                         ${task.completed ? '✅' : '✓'}
                     </button>
