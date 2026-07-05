@@ -47,8 +47,8 @@ body {
     position: absolute;
     border-radius: 50%;
     filter: blur(100px);
-    opacity: 0.4;
-    animation: float 20s infinite ease-in-out alternate;
+    opacity: 0.5;
+    animation: float 25s infinite ease-in-out;
 }
 
 .blob-1 {
@@ -69,8 +69,10 @@ body {
 }
 
 @keyframes float {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    100% { transform: translate(100px, 50px) rotate(20deg); }
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(150px, 80px) scale(1.1) rotate(15deg); }
+    66% { transform: translate(-100px, 120px) scale(0.9) rotate(-10deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(0deg); }
 }
 
 .container {
@@ -85,10 +87,18 @@ header {
     animation: fadeInDown 0.8s ease-out;
 }
 
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 header h1 {
     font-size: 2.5rem;
     font-weight: 700;
-    background: linear-gradient(to right, #f0abfc, #2dd4bf);
+    background: linear-gradient(to right, #f0abfc, #2dd4bf, #8b5cf6, #f0abfc);
+    background-size: 300% 300%;
+    animation: gradientShift 6s ease infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
