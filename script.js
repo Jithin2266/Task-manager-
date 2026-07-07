@@ -181,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span>📅 Start: ${formatDate(task.startDate)}</span>
                     <span>🏁 Due: ${formatDate(task.completionDate)}</span>
                 </div>
-                <div class="task-actions" style="align-items: center;">
-                    ${!task.completed ? `<button class="tomorrow-btn" style="background: rgba(255, 87, 34, 0.15); border: 1px solid var(--primary-color); color: var(--text-primary); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; transition: all 0.2s; margin-right: auto; font-weight: 500;">Move to Tomorrow</button>` : ''}
+                <div class="task-actions">
+                    ${!task.completed ? `<button class="tomorrow-btn">Move to Tomorrow</button>` : ''}
                     <button class="btn-icon complete-btn check" title="${task.completed ? 'Mark as incomplete' : 'Mark as complete'}">
                         ${task.completed ? '✅' : '✓'}
                     </button>

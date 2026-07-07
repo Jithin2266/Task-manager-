@@ -138,13 +138,24 @@ header p {
         font-size: 2rem;
     }
     
-    .task-details {
+    .task-header {
         flex-direction: column;
         gap: 0.5rem;
     }
     
+    .badges {
+        flex-wrap: wrap;
+    }
+    
     .task-actions {
         flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    .tomorrow-btn {
+        width: 100%;
+        margin-right: 0 !important;
+        margin-bottom: 0.5rem;
     }
 }
 
@@ -446,8 +457,27 @@ input:checked + .slider:before {
 .task-actions {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 0.5rem;
     margin-top: 0.5rem;
+}
+
+.tomorrow-btn {
+    background: rgba(255, 87, 34, 0.15);
+    border: 1px solid var(--primary-color);
+    color: var(--text-primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+    margin-right: auto;
+    font-weight: 500;
+}
+
+.tomorrow-btn:hover {
+    background: var(--primary-color);
+    color: #000;
 }
 
 .btn-icon {
