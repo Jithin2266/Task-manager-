@@ -181,8 +181,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span>📅 Start: ${formatDate(task.startDate)}</span>
                     <span>🏁 Due: ${formatDate(task.completionDate)}</span>
                 </div>
+                
                 <div class="task-actions">
-                    ${!task.completed ? `<button class="tomorrow-btn">Move to Tomorrow</button>` : ''}
+                    ${!task.completed ? `
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(task.name)}&dates=${task.startDate.replace(/-/g, '')}/${(function(){ let d = new Date(task.completionDate); d.setDate(d.getDate() + 1); return d.toISOString().split('T')[0].replace(/-/g, ''); })()}&details=${encodeURIComponent('Priority: ' + task.priority + '\nCategory: ' + task.category)}" target="_blank" class="btn-icon gcal-btn" title="Add to Google Calendar" style="text-decoration: none; font-size: 1.1rem; margin-right: 0.5rem; display: flex; align-items: center;">
+                        📅
+                    </a>
+                    <button class="tomorrow-btn">Move to Tomorrow</button>
+                    ` : ''}
                     <button class="btn-icon complete-btn check" title="${task.completed ? 'Mark as incomplete' : 'Mark as complete'}">
                         ${task.completed ? '✅' : '✓'}
                     </button>
